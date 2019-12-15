@@ -14,14 +14,16 @@
   <body>
     <h1 class="sr-only">Our Pricing</h1>
     <section>
-      <header>
-        <h1>Our Pricing</h1>
-        <div>
-          <span>Annually</span>
-          <span class="switch-slider"
-            ><input type="checkbox" name="billing-type" id="billing-type"
-          /></span>
-          <span>Monthly</span>
+      <header class="price-table-header">
+        <h1 class="price-table-heading">Our Pricing</h1>
+        <div class="price-billing-switch">
+          <span class="billing-type-text">Annually</span>
+          <label class="switch-slider">
+            <input type="checkbox" name="billing-type" id="billing-type" />
+            <span class="switch"></span>
+          </label>
+
+          <span class="billing-type-text">Monthly</span>
         </div>
       </header>
       <div class="card-container">
