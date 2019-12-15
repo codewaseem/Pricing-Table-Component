@@ -8,7 +8,7 @@ html {
   --base-font-size: 15px;
   --mobile-size: 375px;
   font-size: var(--base-font-size);
-  line-height: 1.2em;
+  /* line-height: 1.2em; */
   --primary-color-start: hsl(236, 72%, 79%);
   --primary-color-stop: hsl(237, 63%, 64%);
   --very-light-grayish-blue: hsl(240, 78%, 98%);
@@ -51,7 +51,7 @@ body {
 .price-table-heading {
   color: var(--dark-grayish-blue);
   opacity: 0.8;
-  font-size: 1.8rem;
+  font-size: 26px;
 }
 .price-billing-switch {
   max-width: 300px;
@@ -66,6 +66,7 @@ body {
 .billing-type-text {
   color: var(--light-grayish-blue);
   font-weight: 700;
+  font-size: 15px;
 }
 
 .switch-slider {
@@ -132,21 +133,21 @@ body {
   color: white;
 }
 .card .card-title {
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 .card .card-price {
-  font-size: 4rem;
-  line-height: 5rem;
+  font-size: 60px;
+  line-height: 75px;
   vertical-align: middle;
-  margin: 1rem 0px;
+  margin: 20px 0px;
   color: var(--dark-grayish-blue);
 }
 .card.inverted .card-price {
   color: white;
 }
 .card .card-price .card-currency {
-  font-size: 2.2rem;
+  font-size: 32px;
   vertical-align: middle;
   padding-right: 5px;
 }
@@ -160,6 +161,7 @@ body {
   display: block;
   padding: 15px;
   border-top: 1px solid var(--opaque-border);
+  font-size: 15px;
 }
 .card .card-features > *:last-child {
   border-bottom: 1px solid var(--opaque-border);
@@ -173,7 +175,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   display: block;
-  font-size: 0.8rem;
+  font-size: 14px;
   color: var(--very-light-grayish-blue);
   background: linear-gradient(
     to right,
@@ -190,12 +192,15 @@ body {
   color: var(--primary-color-stop);
 }
 /* Tablets? */
-@media screen and (min-width: var(--mobile-size)) {
+@media screen and (min-width: 375px) {
   html {
     font-size: calc(
       var(--base-font-size) + 8 * ((100vw - var(--mobile-size)) / 960)
     );
-    line-height: calc(1.2em + 0.6 * ((100vw - var(--mobile-size)) / 960));
+    /* line-height: calc(1.2em + 0.6 * ((100vw - var(--mobile-size)) / 960)); */
+  }
+  .card-container {
+    grid-template-columns: 300px;
   }
 }
 
@@ -203,6 +208,14 @@ body {
 @media screen and (min-width: 1280px) {
   html {
     --base-font-size: 22px;
-    line-height: 1.8em;
+    /* line-height: 1.8em; */
+  }
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+    column-gap: 5px;
+  }
+
+  .card.card.inverted {
+    transform: scale(1.1);
   }
 }
