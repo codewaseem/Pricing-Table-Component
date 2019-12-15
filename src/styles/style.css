@@ -24,3 +24,13 @@ html {
     line-height: 1.8em;
   }
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1;
+  padding: 0;
+  top: -9999px;
+}
