@@ -5,24 +5,26 @@
 }
 
 html {
-  font-size: 14px;
+  --base-font-size: 15px;
+  --mobile-size: 375px;
+  font-size: var(--base-font-size);
   line-height: 1.2em;
+  --primary-color-start: hsl(236, 72%, 79%);
+  --primary-color-stop: hsl(237, 63%, 64%);
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --grayish-blue-alpha: hsl(233, 13%, 49%, 0.9);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
 }
 
-/* Tablets? */
-@media screen and (min-width: 320px) {
-  html {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 960));
-    line-height: calc(1.2em + 0.6 * ((100vw - 320px) / 960));
-  }
-}
-
-/* Desktops */
-@media screen and (min-width: 1280px) {
-  html {
-    font-size: 22px;
-    line-height: 1.8em;
-  }
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--very-light-grayish-blue);
+  background-image: url(../assets/bg-top.svg);
+  background-size: 70%;
+  background-position: 200% 0%;
+  background-repeat: no-repeat;
 }
 
 .sr-only {
@@ -33,4 +35,89 @@ html {
   margin: -1;
   padding: 0;
   top: -9999px;
+}
+
+.card-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 300px;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  padding: 20px;
+  /* height: 400px;  */
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.2);
+  background: white;
+  text-align: center;
+  color: var(--grayish-blue-alpha);
+  font-weight: 700;
+}
+
+.card .card-title {
+  font-size: 1rem;
+}
+
+.card .card-price {
+  font-size: 4rem;
+  line-height: 5rem;
+  vertical-align: middle;
+  margin: 1rem 0px;
+  color: var(--dark-grayish-blue);
+}
+
+.card .card-price .card-currency {
+  font-size: 2.2rem;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.card .card-features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.card .card-features > * {
+  display: block;
+  padding: 15px;
+  border-top: 1px solid hsla(234, 14%, 74%, 0.4);
+}
+.card .card-features > *:last-child {
+  border-bottom: 1px solid hsla(234, 14%, 74%, 0.4);
+}
+
+.card .card-button {
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.8rem;
+  color: var(--very-light-grayish-blue);
+  background: linear-gradient(
+    to right,
+    var(--primary-color-start),
+    var(--primary-color-stop)
+  );
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+/* Tablets? */
+@media screen and (min-width: var(--mobile-size)) {
+  html {
+    font-size: calc(
+      var(--base-font-size) + 8 * ((100vw - var(--mobile-size)) / 960)
+    );
+    line-height: calc(1.2em + 0.6 * ((100vw - var(--mobile-size)) / 960));
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 1280px) {
+  html {
+    --base-font-size: 22px;
+    line-height: 1.8em;
+  }
 }
