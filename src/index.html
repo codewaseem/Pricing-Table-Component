@@ -29,7 +29,9 @@
       <div class="card-container">
         <article class="card">
           <h2 class="card-title">Basic</h2>
-          <p class="card-price"><span class="card-currency">$</span>19.99</p>
+          <p class="card-price">
+            <span class="card-currency">$</span><span class="price">19.99</span>
+          </p>
           <ul class="card-features">
             <li>500 GB Storage</li>
             <li>2 Users Allowed</li>
@@ -39,7 +41,9 @@
         </article>
         <article class="card inverted">
           <h2 class="card-title">Professional</h2>
-          <p class="card-price"><span class="card-currency">$</span>24.99</p>
+          <p class="card-price">
+            <span class="card-currency">$</span><span class="price">24.99</span>
+          </p>
           <ul class="card-features">
             <li>1 TB Storage</li>
             <li>2 Users Allowed</li>
@@ -49,7 +53,9 @@
         </article>
         <article class="card">
           <h2 class="card-title">Master</h2>
-          <p class="card-price"><span class="card-currency">$</span>39.99</p>
+          <p class="card-price">
+            <span class="card-currency">$</span><span class="price">39.99</span>
+          </p>
           <ul class="card-features">
             <li>2 TB Storage</li>
             <li>10 Users Allowed</li>
@@ -59,5 +65,23 @@
         </article>
       </div>
     </section>
+    <script>
+      let isBilledMonthly = false;
+      const checkBox = document.getElementById("billing-type");
+      let price = document.querySelectorAll(".price");
+
+      checkBox.addEventListener("change", event => {
+        let multiplier = 1;
+        if (event.target.checked) {
+          multiplier = 1;
+        } else {
+          multiplier = 10;
+        }
+        [20, 25, 40].map((val, i) => {
+          price[i].innerText = (val * multiplier - 0.01).toFixed(2);
+        });
+      });
+      checkBox.click();
+    </script>
   </body>
 </html>
